@@ -3,6 +3,32 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
+        <!-- JSON Schema Markup -->
+        <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "LocalBusiness",
+        "name": "{{ client.name }}",
+        "image": "{{ preloadImg }}",
+        "telephone": "{{ client.phoneForTel }}",
+        "email": "{{ client.email }}",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "{{ client.address.lineOne }}",
+            "addressLocality": "{{ client.address.city }}",
+            "addressRegion": "{{ client.address.state }}",
+            "postalCode": "{{ client.address.zip }}",
+            "addressCountry": "US"
+        },
+        "url": "{{ client.domain }}{{ page.url }}",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5"        
+        }
+        }
+        </script>
+        
         <!-- Standard meta tags -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">

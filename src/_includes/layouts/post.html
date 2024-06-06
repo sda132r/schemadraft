@@ -2,6 +2,32 @@
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/blog.css">
+
+    <!-- JSON Blog Schema Markup -->
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ title }}",
+        "image": [
+            "{{ image }}"
+        ],
+        "datePublished": "{{ date | postDate }}",
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ client.name }}"
+        },
+        "author": [{
+            "@type": "Person",
+            "name": "{{ author }}"        
+            }],
+        
+        "articleBody": "{{ description | safe }}",
+        "url": "{{ client.domain }}{{ page.url }}",
+        "articleSection": "{{ tags }}"
+        }
+    </script>
+    
 {% endblock %}
 
 {% block body %}
